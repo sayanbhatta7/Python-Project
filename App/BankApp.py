@@ -99,7 +99,7 @@ def delete_user(account_id):
         if collection.find_one({"_id":account_id}):
             collection.delete_one({'_id': account_id})
             res = {
-                'message': 'user updated successfully'
+                'message': 'Account has been deleted....Sorry to see you leave.'
             }
             return make_response(jsonify(res), 200)
         else:
