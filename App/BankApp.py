@@ -104,7 +104,7 @@ def delete_user(account_id):
             return make_response(jsonify(res), 200)
         else:
             res={
-                "Message":"Trying to delete non existing account!!"
+                'message':'Trying to delete non existing account!!'
             }
     except:
         res = {
