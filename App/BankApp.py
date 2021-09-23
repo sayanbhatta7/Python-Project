@@ -15,8 +15,7 @@ def add_user():
         email = rec['email']
 
         if not collection.find_one({"email": email}):
-            id = rec.get("_id")
-            account_id = ''.join(random.choices(string.digits, k=10))
+            account_id = ''.join(random.choice('0123456789abcdef') for n in range(34))
             record = {
                 '_id': account_id,
                 'name': name,
@@ -30,7 +29,7 @@ def add_user():
             res = {
                 'account_id': account_id
             }
-            return make_response(jsonify({"Message": "Account Created", "Account Number": account_id}), 201)
+            return make_response(jsonify({"Message": "Account Created. Remember the account number!!", "Account Number": account_id}), 201)
         else:
             res = {
                 'message': 'It is an existing account!'
